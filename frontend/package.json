@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -r github -d dist"
+    "deploy": "gh-pages -r https://github.com/yousef-basil/Hostzera-Frontend.git -d dist"
   },
   "dependencies": {
     "lucide-react": "^1.8.0",
