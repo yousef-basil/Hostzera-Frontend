@@ -5,8 +5,8 @@ import './index.css';
 // Import Pages
 import Home from './pages/Home';
 // Service pages (currently uncommitted, deploying later)
-// import WebHosting from './pages/WebHosting';
-// import ResellerHosting from './pages/ResellerHosting';
+import WebHosting from './pages/WebHosting';
+import ResellerHosting from './pages/ResellerHosting';
 // import WordPressHosting from './pages/WordPressHosting';
 // import EmailHosting from './pages/EmailHosting';
 // import LinuxVPS from './pages/LinuxVPS';
@@ -30,9 +30,9 @@ const App = () => {
         <Route path="/" element={<Home />} />
         
         {/* Service Pages (Commented out until we push them later) */}
-        {/* <Route path="/services/web-hosting" element={<WebHosting />} />
+        <Route path="/services/web-hosting" element={<WebHosting />} />
         <Route path="/services/reseller-hosting" element={<ResellerHosting />} />
-        <Route path="/services/wordpress-hosting" element={<WordPressHosting />} />
+        {/* <Route path="/services/wordpress-hosting" element={<WordPressHosting />} />
         <Route path="/services/email-hosting" element={<EmailHosting />} />
         <Route path="/services/linux-vps" element={<LinuxVPS />} />
         <Route path="/services/windows-vps" element={<WindowsVPS />} />
