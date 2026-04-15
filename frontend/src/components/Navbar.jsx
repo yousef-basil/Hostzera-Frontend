@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronDown, Globe, Languages, Layout, Server, Database, Mail, Terminal, Box, Cpu, HardDrive } from 'lucide-react';
+import { ChevronDown, Globe, Languages, Layout, Server, Database, Mail, Terminal, Box, Cpu, HardDrive, Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const services = [
     { 
@@ -53,6 +54,10 @@ const Navbar = () => {
     },
   ];
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -64,15 +69,16 @@ const Navbar = () => {
             <div className="logo-text">HOST<span>ZERA</span></div>
           </Link>
           
-          <ul className="nav-links">
-            <li><Link to="/pricing">Pricing</Link></li>
+          <ul className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+            <li><Link to="/pricing" onClick={() => setIsMobileMenuOpen(false)}>Pricing</Link></li>
             <li 
               className="has-dropdown"
-              onMouseEnter={() => setIsServicesOpen(true)}
-              onMouseLeave={() => setIsServicesOpen(false)}
+              onMouseEnter={() => !window.matchMedia("(max-width: 960px)").matches && setIsServicesOpen(true)}
+              onMouseLeave={() => !window.matchMedia("(max-width: 960px)").matches && setIsServicesOpen(false)}
+              onClick={() => window.matchMedia("(max-width: 960px)").matches && setIsServicesOpen(!isServicesOpen)}
             >
               <button className="dropdown-trigger">
-                Services <ChevronDown size={14} />
+                Services <ChevronDown size={14} className={isServicesOpen ? 'rotate' : ''} />
               </button>
               
               {isServicesOpen && (
@@ -82,7 +88,12 @@ const Navbar = () => {
                   </div>
                   <div className="mega-menu-content">
                     {services.map((item, index) => (
-                      <Link key={index} to={`/services/${item.title.toLowerCase().replace(/\s+/g, '-')}`} className="mega-menu-item">
+                      <Link 
+                        key={index} 
+                        to={`/services/${item.title.toLowerCase().replace(/\s+/g, '-')}`} 
+                        className="mega-menu-item"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
                         <div className="item-icon">{item.icon}</div>
                         <div className="item-text">
                           <h4>{item.title}</h4>
@@ -94,8 +105,16 @@ const Navbar = () => {
                 </div>
               )}
             </li>
-            <li><Link to="/explore">Explore</Link></li>
-            <li><Link to="/support">Support</Link></li>
+            <li><Link to="/explore" onClick={() => setIsMobileMenuOpen(false)}>Explore</Link></li>
+            <li><Link to="/support" onClick={() => setIsMobileMenuOpen(false)}>Support</Link></li>
+            
+            {/* Mobile-only links */}
+            <li className="mobile-only">
+               <Link to="/login" className="mobile-login" onClick={() => setIsMobileMenuOpen(false)}>Login</Link>
+            </li>
+            <li className="mobile-only">
+               <Link to="/signup" className="mobile-signup" onClick={() => setIsMobileMenuOpen(false)}>Get Started</Link>
+            </li>
           </ul>
         </div>
 
@@ -103,12 +122,19 @@ const Navbar = () => {
           <button className="lang-btn icon-only" title="Change Language">
             <Globe size={20} />
           </button>
-          <Link to="/login" className="nav-login-link">Login</Link>
-          <Link to="/signup" className="get-started-nav">Get Started</Link>
+          <Link to="/login" className="nav-login-link desktop-only">Login</Link>
+          <Link to="/signup" className="get-started-nav desktop-only">Get Started</Link>
+          
+          <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
       </div>
+      
+      {isMobileMenuOpen && <div className="mobile-menu-overlay" onClick={toggleMobileMenu}></div>}
     </nav>
   );
 };
 
 export default Navbar;
+

@@ -384,6 +384,10 @@ input:focus {
   box-shadow: 0 6px 20px rgba(103, 58, 183, 0.4);
 }
 
+.mobile-only, .mobile-menu-toggle {
+  display: none;
+}
+
 /* Mega Menu Styles */
 .has-dropdown {
   position: relative;
@@ -1773,4 +1777,229 @@ input:focus {
 .pagination button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+
+@media (max-width: 1024px) {
+  .navbar-container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+  
+  .pricing-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  /* Navbar Mobile Layout */
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: block !important;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 1002;
+    padding: 0.5rem;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100vh;
+    background: #100a25;
+    flex-direction: column;
+    padding: 100px 1.5rem 2rem;
+    gap: 1.5rem;
+    transition: right 0.3s ease;
+    z-index: 1001;
+    display: flex;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+  }
+
+  .nav-links.mobile-open {
+    right: 0;
+  }
+
+  .nav-links a {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+
+  .has-dropdown {
+    width: 100%;
+  }
+
+  .dropdown-trigger {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .mega-menu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.05);
+    margin-top: 0.5rem;
+    animation: none;
+  }
+
+  .mega-menu-content {
+    grid-template-columns: 1fr;
+  }
+
+  .mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+  }
+
+  .mobile-login {
+    display: block;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    margin-top: 1rem;
+  }
+
+  .mobile-signup {
+    display: block;
+    text-align: center;
+    background: var(--primary);
+    color: white;
+    border-radius: 8px;
+  }
+  
+  .rotate {
+    transform: rotate(180deg);
+  }
+
+  .login-page {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .login-container, .visual-side {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .visual-side {
+    display: none; /* Hide visual side on mobile for better focus on form */
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 4rem 1.25rem;
+  }
+
+  .hero {
+    padding: 6rem 1.25rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    padding: 0 2rem;
+  }
+
+  .primary-btn, .secondary-btn {
+    width: 100%;
+  }
+
+  .section-title h2 {
+    font-size: 2rem;
+  }
+
+  .services-section, .hosting-features-section {
+    padding: 4rem 1.25rem;
+  }
+
+  .pricing-section {
+    margin-top: -4rem;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-sidebar {
+    display: none; /* Need a mobile drawer for admin */
+  }
+
+  .admin-header {
+    padding: 0 1.25rem;
+  }
+
+  .search-bar {
+    display: none;
+  }
+
+  .admin-content {
+    padding: 1.5rem;
+  }
+
+  .stats-row {
+     gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .logo-text {
+    font-size: 1.3rem;
+  }
+
+  .nav-logo .logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .section-title h2 {
+    font-size: 1.75rem;
+  }
+
+  .service-card {
+    padding: 1.5rem;
+  }
+
+  .admin-login-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .admin-login-header h1 {
+    font-size: 1.5rem;
+  }
 }
