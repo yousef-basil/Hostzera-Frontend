@@ -18,9 +18,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import OTP from './pages/OTP';
 import ForgotPassword from './pages/ForgotPassword';
-// Admin pages - kept locally, not in public repo
-// import AdminLogin from './pages/AdminLogin';
-// import AdminDashboard from './pages/AdminDashboard';
+
 
 const App = () => {
   return (
@@ -46,9 +44,7 @@ const App = () => {
         <Route path="/otp" element={<div className="auth-layout"><OTP /></div>} />
         <Route path="/forgot-password" element={<div className="auth-layout"><ForgotPassword /></div>} />
         
-        {/* Admin Routes - removed from public repo */}
-        {/* <Route path="/admin/login" element={<AdminLogin />} /> */}
-        {/* <Route path="/admin" element={<AdminDashboard />} /> */}
+
         
         {/* Handle Unknown Routes */}
         <Route path="*" element={<Navigate to="/" />} />
