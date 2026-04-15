@@ -1919,6 +1919,10 @@ input:focus {
     padding: 6rem 1.25rem;
   }
 
+  .hosting-hero {
+    padding-bottom: 12rem;
+  }
+
   .hero-content h1 {
     font-size: 2.4rem;
   }
@@ -1945,7 +1949,7 @@ input:focus {
   }
 
   .pricing-section {
-    margin-top: -4rem;
+    margin-top: -10rem;
   }
 
   .stats-row {
