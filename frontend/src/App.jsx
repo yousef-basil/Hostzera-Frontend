@@ -9,11 +9,11 @@ import WebHosting from './pages/WebHosting';
 import ResellerHosting from './pages/ResellerHosting';
 import WordPressHosting from './pages/WordPressHosting';
 import EmailHosting from './pages/EmailHosting';
-// import LinuxVPS from './pages/LinuxVPS';
-// import WindowsVPS from './pages/WindowsVPS';
-// import DedicatedServers from './pages/DedicatedServers';
-// import N8nServers from './pages/N8nServers';
-// import OdooHosting from './pages/OdooHosting';
+import LinuxVPS from './pages/LinuxVPS';
+import WindowsVPS from './pages/WindowsVPS';
+import DedicatedServers from './pages/DedicatedServers';
+import N8nServers from './pages/N8nServers';
+import OdooHosting from './pages/OdooHosting';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import OTP from './pages/OTP';
@@ -34,11 +34,11 @@ const App = () => {
         <Route path="/services/reseller-hosting" element={<ResellerHosting />} />
         <Route path="/services/wordpress-hosting" element={<WordPressHosting />} />
         <Route path="/services/email-hosting" element={<EmailHosting />} />
-        {/* <Route path="/services/linux-vps" element={<LinuxVPS />} />
+        <Route path="/services/linux-vps" element={<LinuxVPS />} />
         <Route path="/services/windows-vps" element={<WindowsVPS />} />
         <Route path="/services/dedicated-server" element={<DedicatedServers />} />
         <Route path="/services/n8n-servers" element={<N8nServers />} />
-        <Route path="/services/odoo-hosting" element={<OdooHosting />} /> */}
+        <Route path="/services/odoo-hosting" element={<OdooHosting />} />
         
         {/* Authentication Routes wrapped in layout */}
         <Route path="/login" element={<div className="auth-layout"><Login /></div>} />
